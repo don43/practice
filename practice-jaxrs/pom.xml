@@ -9,31 +9,25 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>practice-redis</artifactId>
-
+    <artifactId>practice-jaxrs</artifactId>
     <build>
         <plugins>
 
         </plugins>
     </build>
     <dependencies>
-       <!-- <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy</artifactId>
-            <version>0.20.0</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>io.quarkus</groupId>
+             <artifactId>quarkus-resteasy</artifactId>
+             <version>0.20.0</version>
+         </dependency>-->
 
-       <dependency>
+        <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>3.11.2</version>
-       </dependency>
+        </dependency>
 
-        <!--<dependency>
-              <groupId>org.redisson</groupId>
-              <artifactId>redisson-spring-boot-starter</artifactId>
-              <version>3.11.2</version>
-          </dependency>
-         -->
     </dependencies>
+
 </project>
