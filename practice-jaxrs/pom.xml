@@ -16,18 +16,32 @@
         </plugins>
     </build>
     <dependencies>
-        <!-- <dependency>
-             <groupId>io.quarkus</groupId>
-             <artifactId>quarkus-resteasy</artifactId>
-             <version>0.20.0</version>
-         </dependency>-->
-
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>3.11.2</version>
         </dependency>
 
+        <!-- Flyway specific dependencies -->
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-flyway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-agroal</artifactId>
+        </dependency>
+
+        <!-- JDBC driver dependencies -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-postgresql</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

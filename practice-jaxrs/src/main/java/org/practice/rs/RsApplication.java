@@ -22,13 +22,18 @@ public class RsApplication {
 
         RLock lock = redisson.getLock("anyLock");
         try {
-            System.out.println("lock start " + RsApplication.class.getSimpleName());
+            System.out.println("lock start ");
             lock.lock(10, TimeUnit.SECONDS);
-            System.out.println("lock success " + RsApplication.class.getSimpleName());
+            System.out.println("lock success ");
             Thread.sleep(15 * 1000);
+            System.out.println("打印就表示有执行");
         } finally {
-            lock.unlock();
-            System.out.println("unlock success " + RsApplication.class.getSimpleName());
+            try {
+                lock.unlock();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println("unlock success ");
         }
         redisson.shutdown();
     }

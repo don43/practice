@@ -17,11 +17,11 @@
         </plugins>
     </build>
     <dependencies>
-       <!-- <dependency>
+       <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
             <version>0.20.0</version>
-        </dependency>-->
+        </dependency>
 
        <dependency>
             <groupId>org.redisson</groupId>
