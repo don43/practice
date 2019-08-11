@@ -10,7 +10,7 @@ docker run -p 9001:8080 --restart always --name swaggerui-inst swaggerapi/swagge
 docker run --name redis-inst -p 6379:6379  --restart always -v D:/docker/redis:/data -d redis redis-server --appendonly yes
 
 #mysql#
-docker run -p 3306:3306 --name mysql-inst -v D:/docker/mysql/conf:/etc/mysql/conf -v D:/docker/mysql/logs:/logs -v D:/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7
+docker run -p 3306:3306 --name mysql-inst  -v /home/docker/mysql/conf:/etc/mysql/conf.d -v /home/docker/mysql/data:/var/lib/mysql -v /home/docker/mysql/log:/var/log/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7.27
 
 docker run -p 3306:3306 --name mysql-inst -v D:/docker/mysql/conf:/etc/mysql/conf.d -v D:/docker/mysql/logs:/logs -v D:/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7
 
