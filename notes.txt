@@ -1,0 +1,49 @@
+#portainer#
+#docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 --restart always --name portainer-inst -v /var/run/docker.sock:/var/run/docker.sock -v D:/docker/portainer:/data portainer/portainer
+
+
+#swaggerui#
+docker run -p 9001:8080 --restart always --name swaggerui-inst swaggerapi/swagger-ui  
+
+#redis#
+docker run --name redis-inst -p 6379:6379  --restart always -v D:/docker/redis:/data -d redis redis-server --appendonly yes
+
+#mysql#
+docker run -p 3306:3306 --name mysql-inst -v D:/docker/mysql/conf:/etc/mysql/conf -v D:/docker/mysql/logs:/logs -v D:/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7
+
+docker run -p 3306:3306 --name mysql-inst -v D:/docker/mysql/conf:/etc/mysql/conf.d -v D:/docker/mysql/logs:/logs -v D:/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7
+
+#zookeeper#
+docker run --name zookeeper1 -it -p 2181:2181 -p 2888:2888 -p 3888:3888  --restart always -d zookeeper
+
+
+#rabbitmq#
+docker run -d  --restart always --name rabbitmq1 -p 15672:15672 -p 5672:5672 rabbitmq:management
+
+
+#rocketmq server#
+docker run -d -p 9876:9876 \
+-v /home/rocketmq/data/namesrv/logs:/root/logs \
+-v /home/rocketmq/data/namesrv/store:/root/store \
+--name rmqnamesrv -e "MAX_POSSIBLE_HEAP=100000000" \
+rocketmqinc/rocketmq:4.4.0 sh mqnamesrv
+
+#rocketmq borker#
+docker run -d -p 10911:10911 -p 10909:10909 \
+-v /home/rocketmq/data/broker/logs:/root/logs \
+-v /home/rocketmq/data/broker/store:/root/store \
+-v /home/rocketmq/data/broker/conf/broker.conf:/opt/rocketmq-4.4.0/conf/broker.conf \
+--name rmqbroker --link rmqnamesrv:namesrv \
+-e "NAMESRV_ADDR=namesrv:9876" \
+-e "MAX_POSSIBLE_HEAP=200000000" \
+rocketmqinc/rocketmq:4.4.0 sh mqbroker -c /opt/rocketmq-4.4.0/conf/broker.conf
+
+#rocketmq console#
+docker run \
+-e "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" \
+--name rmqconsole \
+-p 8080:8080 -t styletang/rocketmq-console-ng
+
+
+
