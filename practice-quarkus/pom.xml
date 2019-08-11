@@ -9,7 +9,7 @@
         <module>practice-jaxrs</module>
     </modules>
     <groupId>org.practice</groupId>
-    <artifactId>practice-mp</artifactId>
+    <artifactId>practice-quarkus</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
