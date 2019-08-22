@@ -6,20 +6,29 @@ docker run -d -p 8000:8000 -p 9000:9000 --restart always --name portainer-inst -
 #swaggerui#
 docker run -p 9001:8080 --restart always --name swaggerui-inst swaggerapi/swagger-ui  
 
+
+
 #redis#
 docker run --name redis-inst -p 6379:6379  --restart always -v D:/docker/redis:/data -d redis redis-server --appendonly yes
 
-#mysql#
-docker run -p 3306:3306 --name mysql-inst  -v D:/docker/mysql/conf:/etc/mysql/conf.d -v D:/docker/mysql/data:/var/lib/mysql -v D:/docker/mysql/log:/var/log/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7.27
 
-docker run -p 3306:3306 --name mysql-inst -v D:/docker/mysql/conf:/etc/mysql/conf.d -v D:/docker/mysql/logs:/logs -v D:/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7
+
+#mysql#
+
+docker run -p 3306:3306 --name mysql-inst -v D:/docker/mysql/conf.d:/etc/mysql/conf.d -v D:/docker/mysql/data:/var/lib/mysql -v D:/docker/mysql/log:/var/log/mysql -e MYSQL_ROOT_PASSWORD=com.gixon -d mysql:5.7.27
+
 
 #zookeeper#
 docker run --name zookeeper1 -it -p 2181:2181 -p 2888:2888 -p 3888:3888  --restart always -d zookeeper
 
 
+
+
 #rabbitmq#
 docker run -d  --restart always --name rabbitmq1 -p 15672:15672 -p 5672:5672 rabbitmq:management
+
+
+
 
 
 #rocketmq server#

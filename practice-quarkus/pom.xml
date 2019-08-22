@@ -7,6 +7,7 @@
     <modules>
         <module>practice-redis</module>
         <module>practice-jaxrs</module>
+        <module>practice-ddd</module>
     </modules>
     <groupId>org.practice</groupId>
     <artifactId>practice-quarkus</artifactId>
