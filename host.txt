@@ -1,0 +1,6 @@
+192.168.3.241 sit.internal
+192.168.3.241 api.sit.internal
+192.168.3.241 passport.sit.internal
+192.168.3.241 mall.sit.internal
+192.168.3.241 opms.sit.internal
+192.168.3.241 soms.sit.internal
