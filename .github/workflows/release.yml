@@ -2,7 +2,7 @@ name: release version
 on:
   push:
     branches:
-      - ci-test
+      - master
 env:
   DAY_OF_WEEK:  ${{ github.event.inputs.mono-build-repo || "latest" }}
 jobs:
