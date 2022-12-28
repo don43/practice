@@ -15,5 +15,5 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: |
-          echo ${{ secrets.YYY }}
+          echo ${{ env.secrets.YYY }}
           mvn --batch-mode --update-snapshots compile -Dmaven.test.skip=true
