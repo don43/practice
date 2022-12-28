@@ -16,4 +16,4 @@ jobs:
       - name: Build with Maven
         run: |
           echo $DAY_OF_WEEK
-          mvn --batch-mode --update-snapshots package -Dmaven.test.skip=true
+          mvn --batch-mode --update-snapshots compile -Dmaven.test.skip=true
