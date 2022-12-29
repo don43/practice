@@ -17,4 +17,4 @@ jobs:
           distribution: "temurin"
           cache: maven
       - name: Build with Maven
-        run:  echo y ${{ GITHUB_YYY }} z ${{ GITHUB_ZZZ }}
+        run:  echo y ${{ env.GITHUB_YYY }} z ${{ env.GITHUB_ZZZ }}
