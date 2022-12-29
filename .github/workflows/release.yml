@@ -37,6 +37,5 @@ jobs:
               "rdc"
             ]
           output_file: .m2/settings.xml
-        run:  cat /home/runner/work/practice/practice/.m2/settings.xml
       - name: Build with Maven
         run:  cat /home/runner/work/practice/practice/.m2/settings.xml
