@@ -4,7 +4,6 @@ on:
     branches:
       - master
 env:
-  GITHUB_XXX: ${{ secrets.XXX }}
   GITHUB_YYY: ${{ secrets.YYY }}
   GITHUB_ZZZ: ${{ secrets.ZZZ }}
 jobs:
