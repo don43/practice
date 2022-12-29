@@ -19,8 +19,8 @@ jobs:
             [
               {
                 "id": "rdc-releases",
-                "username": "${secrets.MVN_USERNAME}",
-                "password": "${secrets.MVN_PASSWORD}"
+                "username": "${{ secrets.MVN_USERNAME }}",
+                "password": "${{ secrets.MVN_PASSWORD }}"
               }
             ]
           profiles: >
