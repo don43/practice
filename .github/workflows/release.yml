@@ -38,4 +38,4 @@ jobs:
             ]
           output_file: .m2/settings.xml
       - name: Build with Maven
-        run:  cat .m2/settings.xml
+        run:  mvn --batch-mode --update-snapshots deploy -Dmaven.test.skip=true -s .m2/settings.xml
