@@ -7,7 +7,7 @@ on:
         required: true 
         type: string
     branches:
-      - '**'
+      - main
 #permissions: read-all
 jobs:
   release:
