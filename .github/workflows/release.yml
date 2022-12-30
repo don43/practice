@@ -16,33 +16,27 @@ jobs:
       - uses: whelk-io/maven-settings-xml-action@v21
         with:
           servers: >
-            [
-              {
+            [{
                 "id": "rdc-releases",
                 "username": "${{ secrets.MVN_USERNAME }}",
                 "password": "${{ secrets.MVN_PASSWORD }}"
-              }
-            ]
+            }]
           profiles: >
-            [
-              {
+            [{
                 "id": "rdc",
-                "properties": {
-                  "altReleaseDeploymentRepository": "rdc-releases::default::https://packages.aliyun.com/maven/repository/2040008-release-fvpoDf/"
-                }
-              }
-            ]
+                "properties": {"altReleaseDeploymentRepository": "rdc-releases::default::https://packages.aliyun.com/maven/repository/2040008-release-fvpoDf/"}
+            }]
           active_profiles: >
-            [
-              "rdc"
-            ]
+            ["rdc"]
           output_file: /home/runner/.m2/settings.xml
-      - name: Build with Maven
-        run:  mvn --batch-mode package -Dmaven.test.skip=true -s /home/runner/.m2/settings.xml
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GIT_TOKEN }}
-          author_email: 'ci-bot@gixon.com'
-          author_name:  'ci-bot'
-          tags: '1.1.1'
+      - name: Build Release
+        run: |
+          git checkout -B for_release
+          mvn versions:set-property -DgenerateBackupPoms=false  -Dproperty=revision -DnewVersion=1.1.1
+          mvn clean deploy -U -Dmaven.test.skip=true --batch-mode -s /home/runner/.m2/settings.xml
+          git config --global user.email "ci-bot@gixon.com"
+          git config --global user.name  "ci-bot"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git commit -a -m "ci release 1.1.1"
+          git tag 1.1.1
+          git push origin 1.1.1
