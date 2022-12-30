@@ -12,9 +12,6 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.5.RELEASE</version>
     </parent>
-    <properties>
-        <revision>2.5.0</revision>
-    </properties>
     <modules>
         <module>practice-dubbo</module>
         <module>practice-redis</module>
@@ -24,6 +21,7 @@
         <module>practice-rocketmq</module>
     </modules>
     <properties>
+        <revision>999-SNAPSHOT</revision>
         <rocketmq-spring-boot-starter-version>2.0.3</rocketmq-spring-boot-starter-version>
         <dubbo.version>2.7.1</dubbo.version>
         <curator.version>4.2.0</curator.version>
