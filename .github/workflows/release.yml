@@ -6,6 +6,10 @@ name: release version
 #         description: 'for release semantic versioning'
 #         required: true 
 #         type: string
+on:
+  push:
+    branches:
+      - master
 #permissions: read-all
 jobs:
   release:
