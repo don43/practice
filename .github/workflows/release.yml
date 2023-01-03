@@ -6,7 +6,6 @@ on:
         description: 'for release semantic versioning'
         required: true 
         type: string
-#permissions: read-all
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -44,3 +43,12 @@ jobs:
           git commit -a -m "ci release ${{ inputs.CI_COMMIT_TAG }} "
           git tag ${{ inputs.CI_COMMIT_TAG }} 
           git push origin ${{ inputs.CI_COMMIT_TAG }} 
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: cicd
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_TITLE: Post Title
+          SLACK_USERNAME: rtCamp
+          SLACK_WEBHOOK: https://hooks.slack.com/services/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
