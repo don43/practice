@@ -21,7 +21,7 @@
         <module>practice-rocketmq</module>
     </modules>
     <properties>
-        <revision>999-SNAPSHOT</revision>
+        <revision>1.5.2</revision>
         <rocketmq-spring-boot-starter-version>2.0.3</rocketmq-spring-boot-starter-version>
         <dubbo.version>2.7.1</dubbo.version>
         <curator.version>4.2.0</curator.version>
