@@ -43,29 +43,29 @@ jobs:
           git commit -a -m "ci release ${{ inputs.CI_COMMIT_TAG }} "
           git tag ${{ inputs.CI_COMMIT_TAG }} 
           git push origin ${{ inputs.CI_COMMIT_TAG }} 
-      # - name: Send custom JSON data to Slack workflow
-      #   id: slack
-      #   uses: slackapi/slack-github-action@v1.23.0
-      #   with:
-      #     payload: |
-      #       {
-      #         "text": "hello"
-      #       }
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK}}
-
-      - name: Post to a Slack channel
+      - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # Slack channel id, channel name, or user id to post message.
-          # See also: https://api.slack.com/methods/chat.postMessage#channels
-          # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-          channel-id: 'cicd'
-          # For posting a simple plain text message
-          slack-message: "github build result: ${{ job.status }} @here"
+          payload: |
+            {
+              "text": "hello"
+            }
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+
+      # - name: Post to a Slack channel
+      #   id: slack
+      #   uses: slackapi/slack-github-action@v1.23.0
+      #   with:
+      #     # Slack channel id, channel name, or user id to post message.
+      #     # See also: https://api.slack.com/methods/chat.postMessage#channels
+      #     # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
+      #     channel-id: 'cicd'
+      #     # For posting a simple plain text message
+      #     slack-message: "github build result: ${{ job.status }} @here"
+      #   env:
+      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
       
       # - name: Slack notification
       #   env:
