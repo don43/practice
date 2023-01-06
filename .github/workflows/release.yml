@@ -52,7 +52,7 @@ jobs:
               "text": "hello"
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
       # - name: Post to a Slack channel
       #   id: slack
       #   uses: slackapi/slack-github-action@v1.23.0
