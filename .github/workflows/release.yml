@@ -43,28 +43,28 @@ jobs:
           git commit -a -m "ci release ${{ inputs.CI_COMMIT_TAG }} "
           git tag ${{ inputs.CI_COMMIT_TAG }} 
           git push origin ${{ inputs.CI_COMMIT_TAG }} 
-      # - name: Send custom JSON data to Slack workflow
-      #   id: slack
-      #   uses: slackapi/slack-github-action@v1.23.0
-      #   with:
-      #     payload: |
-      #       {
-      #         "text": "hello"
-      #       }
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-      - name: Post to a Slack channel
+      - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # Slack channel id, channel name, or user id to post message.
-          # See also: https://api.slack.com/methods/chat.postMessage#channels
-          # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-          channel-id: 'cicd'
-          # For posting a simple plain text message
-          slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          payload: |
+            {
+              "text": "hello"
+            }
         env:
-          SLACK_BOT_TOKEN: xoxb-737952375093-1472149530068-e8XW464m06ZbigAATMegZxmp
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+      # - name: Post to a Slack channel
+      #   id: slack
+      #   uses: slackapi/slack-github-action@v1.23.0
+      #   with:
+      #     # Slack channel id, channel name, or user id to post message.
+      #     # See also: https://api.slack.com/methods/chat.postMessage#channels
+      #     # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
+      #     channel-id: 'cicd'
+      #     # For posting a simple plain text message
+      #     slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+      #   env:
+      #     SLACK_BOT_TOKEN: xoxb-737952375093-1472149530068-e8XW464m06ZbigAATMegZxmp
       
       # - name: Slack notification
       #   env:
