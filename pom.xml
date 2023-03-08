@@ -23,7 +23,7 @@
     <properties>
         <revision>999-SNAPSHOT</revision>
         <rocketmq-spring-boot-starter-version>2.0.3</rocketmq-spring-boot-starter-version>
-        <dubbo.version>2.7.1</dubbo.version>
+        <dubbo.version>2.7.21</dubbo.version>
         <curator.version>4.2.0</curator.version>
         <hessian.version>4.0.38</hessian.version>
         <zookeeper.version>3.5.5</zookeeper.version>
